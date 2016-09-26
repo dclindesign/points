@@ -1,0 +1,123 @@
+extends layout
+
+block content
+    h1= title
+    p Game Time and Points
+
+    // Wrapper
+    #wrapper
+        // USER INFO
+        #userInfo
+            h2 User Info
+            p
+                strong Date:
+                |  <span id='userInfodate'></span>
+                br
+                strong Name:
+                |  <span id='userInfoname'></span>
+                br
+                strong Dojo Points:
+                |  <span id='userInfodojopoints'></span>
+                br
+                strong Class Color:
+                |  <span id='userInfocolor' type='color'></span>
+                br
+                strong School Game Time:
+                |  <span id='userInfoschoolGtime'></span>
+                br
+                strong Kumon Game Time:
+                |  <span id='userInfokumonGtime'></span>
+                br
+                strong Chinese Points:
+                |  <span id='userInfochinesepoints'></span>
+                br
+                strong Used Game Time:
+                |  <span id='userInfousedGtime'></span>
+
+        // /USER INFO
+
+        // ADD Entry
+        #addUserPanel
+          h2 Add Entry
+          #addUser
+            fieldset
+              select#inputUserName(type='text')
+                option(value='Dustin') Dustin
+                option(value='Matthew') Matthew
+              br
+              | Date
+              input#inputUserDate(type='date', placeholder='Date')
+              br
+              | Dojo Points
+              input#inputUserDojoPoints(type='number', placeholder='#', min='0', max='3')
+              | Class Color
+              input#inputUserColor(type='color', placeholder='Color')
+              br
+              | Kumon Game Time
+              select#inputUserkumonGtime(type='number')
+                option(value='10') 1 Packet
+                option(value='20') 2 Packet
+                option(value='30') 3 Packet
+                option(value='40') 4 Packet
+                option(value='50') 5 Packet
+                option(value='60') 6 Packet
+                option(value='70') 7 Packet
+              br
+              | Chinese Points
+              input#inputUserChinesePoints(type='number', placeholder='#', min='0', max='5')
+              br
+              | Used Game Time
+              input#inputUserUsedGTime(type='number', placeholder='-#', min='-300', max='0')
+              br
+              button#btnAddUser Add User
+        // /ADD USER
+
+        // UPDATE USER
+        #updateUserPanel
+          h2 Update User
+          #updateUser
+            fieldset
+              select#updateUserName(type='text')
+                option(value='Dustin') Dustin
+                option(value='Matthew') Matthew
+              br
+              | Date
+              input#updateUserDate(type='date', placeholder='Date')
+              br
+              | Dojo Points
+              input#updateUserDojoPoints(type='number', placeholder='#', min='0', max='3')
+              | Class Color
+              input#updateUserColor(type='color', placeholder='Color')
+              br
+              | School Game Time
+              input#updateUserSchoolGtime(type='number', placeholder='#', min='0', max='90')
+              br
+              select#updateUserkumonGtime(type='number')
+                option(value='10') 1 Packet
+                option(value='20') 2 Packet
+                option(value='30') 3 Packet
+                option(value='40') 4 Packet
+                option(value='50') 5 Packet
+                option(value='60') 6 Packet
+                option(value='70') 7 Packet
+              br
+              | Chinese Points
+              input#updateUserChinesePoints(type='number', placeholder='#', min='0', max='5')
+              br
+              | Used Game Time
+              input#updateUserUsedGTime(type='number', placeholder='-#', min='-300', max='0')
+              br
+              button#btnUpdateUser Update User
+              button#btnCancelUpdateUser Cancel
+        // /UPDATE USER
+        // Point and Time Entry
+        h2 Points and Time Entry
+        #userList
+            table
+                thead
+                    th Date
+                    th Name
+                    th Delete/Update?
+                tbody
+        // /USER LIST
+    // /WRAPPER

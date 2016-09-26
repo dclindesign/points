@@ -1,0 +1,74 @@
+mongodb
+use points
+
+db.userlist.insert(
+  {
+    'date' : '08262016',
+    'name' : 'Dustin',
+    'dojoPoints' : '3',
+    'color' : 'na',
+    'schoolGtime' : '90',
+    'kumonGtime' : '0',
+    'chinesepoints' : '0',
+    'usedGtime' : '-0',
+  })
+
+  db.userlist.insert(
+    {
+      'date' : '08222016',
+      'name' : 'Matthew',
+      'dojoPoints' : '0',
+      'color' : 'purple',
+      'schoolGtime' : '18',
+      'kumonGtime' : '0',
+      'chinesepoints' : '0',
+      'usedGtime' : '-0',
+    })
+
+    db.userlist.insert(
+      {
+        'date' : '08232016',
+        'name' : 'Matthew',
+        'dojoPoints' : '0',
+        'color' : 'purple',
+        'schoolGtime' : '18',
+        'kumonGtime' : '0',
+        'chinesepoints' : '0',
+        'usedGtime' : '-0',
+      })
+
+      db.userlist.insert(
+        {
+          'date' : '08242016',
+          'name' : 'Matthew',
+          'dojoPoints' : '0',
+          'color' : 'purple',
+          'schoolGtime' : '18',
+          'kumonGtime' : '0',
+          'chinesepoints' : '0',
+          'usedGtime' : '-0'
+        })
+
+        db.userlist.insert(
+          {
+            'date' : '08252016',
+            'name' : 'Matthew',
+            'dojoPoints' : '0',
+            'color' : 'purple',
+            'schoolGtime' : '18',
+            'kumonGtime' : '0',
+            'chinesepoints' : '0',
+            'usedGtime' : '-0',
+          })
+
+          db.userlist.insert(
+            {
+              'date' : '08262016',
+              'name' : 'Matthew',
+              'dojoPoints' : '0',
+              'color' : 'purple',
+              'schoolGtime' : '18',
+              'kumonGtime' : '0',
+              'chinesepoints' : '0',
+              'usedGtime' : '-0',
+            })
