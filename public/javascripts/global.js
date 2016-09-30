@@ -55,6 +55,12 @@ function populateTable() {
             tableContent += '<tr>';
             tableContent += '<td><a href="#" class="linkshowuser" rel="' + this.date + '">' + this.date + '</a></td>';
             tableContent += '<td>' + this.name + '</td>';
+            tableContent += '<td>' + this.dojopoints + '</td>';
+            tableContent += '<td>' + this.color + '</td>';
+            tableContent += '<td>' + this.schoolgtime + '</td>';
+            tableContent += '<td>' + this.kumongtime + '</td>';
+            tableContent += '<td>' + this.chinesepoints + '</td>';
+            tableContent += '<td>' + this.usedgtime + '</td>';
             tableContent += '<td><a href="#" class="linkdeleteuser" rel="' + this._id + '">delete</a>/<a href="#" class="linkupdateuser" rel="' + this._id + '">update</a></td>';
             tableContent += '</tr>';
         });
@@ -71,8 +77,8 @@ function showUserInfo(event) {
     event.preventDefault();
 
     // Retrieve username from link rel attribute
-  //  var thisUserName = $(this).attr('rel');
-//console.log(thisUserName);
+  //  var thisUsername = $(this).attr('rel');
+//console.log(thisUsername);
 // Retrieve ID from link rel attribute
 var _Date = $(this).attr('rel');
 console.log(_Date);
@@ -84,12 +90,12 @@ console.log(_Date);
     //Populate Info Box
     $('#userInfodate').text(thisUserObject.date);
     $('#userInfoname').text(thisUserObject.name);
-    $('#userInfodojopoint').text(thisUserObject.dojopoint);
+    $('#userInfodojopoints').text(thisUserObject.dojopoints);
     $('#userInfocolor').text(thisUserObject.color);
-    $('#userInfoschoolGtime').text(thisUserObject.schoolGtime);
-    $('#userInfokumonGtime').text(thisUserObject.kumonGtime);
+    $('#userInfoschoolgtime').text(thisUserObject.schoolgtime);
+    $('#userInfokumongtime').text(thisUserObject.kumongtime);
     $('#userInfochinesepoints').text(thisUserObject.chinesepoints);
-    $('#userInfousedGtime').text(thisUserObject.usedGtime);
+    $('#userInfousedgtime').text(thisUserObject.usedgtime);
 
    }
 
@@ -109,15 +115,14 @@ console.log(_Date);
            // If it is, compile all user info into one object
            var newUser = {
                'date': $('#addUser fieldset input#inputUserDate').val(),
-               'name': $('#addUser fieldset select#inputUserName').val(),
-               'dojopoints': $('#addUser fieldset input#inputUserDojoPoints').val(),
-               'color': $('#addUser fieldset input#inputUserColor').val(),
-               'schoolGtime': $('#addUser fieldset input#inputUserSchoolGtime').val(),
-               'kumonGtime': $('#addUser fieldset select#inputUserkumonGtime').val(),
-               'chinesepoints': $('#addUser fieldset input#inputUserChinesePoints').val(),
-               'usedGTime': $('#addUser fieldset input#inputUserUsedGTime').val()
+               'name': $('#addUser fieldset select#inputUsername').val(),
+               'dojopoints': $('#addUser fieldset input#inputUserdojopoints').val(),
+               'color': $('#addUser fieldset input#inputUsercolor').val(),
+               'schoolgtime': $('#addUser fieldset input#inputUserschoolgtime').val(),
+               'kumongtime': $('#addUser fieldset select#inputUserkumongtime').val(),
+               'chinesepoints': $('#addUser fieldset input#inputUserchinesepoints').val(),
+               'usedgtime': $('#addUser fieldset input#inputUserusedgtime').val()
            };
-
            // Use AJAX to post the object to our adduser service
            $.ajax({
                type: 'POST',
@@ -150,7 +155,6 @@ console.log(_Date);
            return false;
        }
    }
-
    // Delete User
    function deleteUser(event) {
 
@@ -221,14 +225,14 @@ console.log(_Date);
            var thisUserObject = userListData[arrayPosition];
            console.log("updateuser =" + JSON.stringify(thisUserObject));
            // Populate Info Box
-           $('#updateUserName').val(thisUserObject.name);
-           $('#updateUserDate').val(thisUserObject.date);
-           $('#updateUserDojoPoints').val(thisUserObject.dojopoints);
-           $('#updateUserColor').val(thisUserObject.color);
-           $('#updateUserSchoolGtime').val(thisUserObject.schoolGtime);
-           $('#updateUserkumonGtime').val(thisUserObject.kumonGtime);
-           $('#updateUserChinesePoints').val(thisUserObject.chinesepoints);
-           $('#updateUserUsedGTime').val(thisUserObject.usedGtime);
+           $('#updateUsername').val(thisUserObject.name);
+           $('#updateUserdate').val(thisUserObject.date);
+           $('#updateUserdojopoints').val(thisUserObject.dojopoints);
+           $('#updateUsercolor').val(thisUserObject.color);
+           $('#updateUserschoolgtime').val(thisUserObject.schoolgtime);
+           $('#updateUserkumongtime').val(thisUserObject.kumongtime);
+           $('#updateUserchinesepoints').val(thisUserObject.chinesepoints);
+           $('#updateUserusedgtime').val(thisUserObject.usedgtime);
 
            // Put the userID into the REL of the 'update user' block
            $('#updateUser').attr('rel',thisUserObject._id);
@@ -265,8 +269,8 @@ console.log(_Date);
                console.log("Value =" + value);
                updatedFields[key] = value;
              });
-          //   thisUserName = document.getElementById("updateUserName").value;
-          //   console.log("Username =" + thisUserName);
+          //   thisUsername = document.getElementById("updateUsername").value;
+          //   console.log("Username =" + thisUsername);
              //updatedFields['gender'] = value;
 
              console.log("updatedFields = " + JSON.stringify(updatedFields));
@@ -286,7 +290,7 @@ $.ajax({
                // Check for a successful (blank) response
                if (response.msg === '') {
                  togglePanels();
-        //         console.log("Username =" + thisUserName);
+        //         console.log("Username =" + thisUsername);
           //       showUserInfo("test2");
                  console.log("updated success" + updatedFields);
                }
@@ -308,3 +312,20 @@ $.ajax({
 
            }
          }
+// changetime
+function convertdojotime() {
+    var convertdojopoints = $('#addUser fieldset input#inputUserdojopoints').val();
+    if ( convertdojopoints == '1'){
+      console.log('adding 60min');
+      var convgtime = '60';
+      //$(inputUserschoolgtime.val('60'));
+    }
+    else
+      if ( convertdojopoints == '2'){
+        console.log('adding 90min');
+      //  $('#addUser fieldset input#inputUserschoolgtime').val('90');
+      }
+      else
+        console.log('adding 0min');
+      //  $('#addUser fieldset input#inputUserschoolgtime').val('0');
+      }

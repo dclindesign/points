@@ -1,0 +1,58 @@
+db.userlist.aggregate( [
+	{$match: { name: "Matthew"}},
+	{$group: {_id: "$name", kumongtime: {$sum: "$kumongtime"}}}])
+
+db.userlist.aggregate( [
+	{$match: { name: "Matthew"}},
+	{$group: {_id: "$name", total: {$sum: {$subtract: [{$sum: {”$kumongtime", "“$usedgtime"]}}}}])
+
+//add kumongtime
+db.userlist.aggregate( [
+	{$match: { name: "Matthew"}},
+	{$group: {_id: "$name", total: {$sum: "$kumongtime"}}}])
+
+//add chinese points
+db.userlist.aggregate( [
+	{$match: { name: "Matthew"}},
+	{$group: {_id: "$name", total: {$sum: "$chinesepoints"}}}])
+
+//add usedgtime
+db.userlist.aggregate( [
+	{$match: { name: "Matthew"}},
+	{$group: {_id: "$name", total: {$sum: "$usedgtime"}}}])
+
+//add dojopoints
+db.userlist.aggregate( [
+	{$match: { name: "Dustin"}},
+	{$group: {_id: "$name", total: {$sum: "$dojopoints"}}}])
+
+//total game time Dustin
+db.userlist.aggregate( [
+	{$match: { name: "Dustin"}},
+	{$group: {_id: "$name", total: {$sum: "$dojopoints"}}}])
+
+
+//change num
+db.userlist.find({chinesepoints: {$exists: true}}).forEach(function(obj) { 
+    obj.chinesepoints = new NumberLong(obj.chinesepoints);
+    db.userlist.save(obj);
+});
+
+
+schoolgtime
+
+  script
+                -if (inputUserdojopoints == '1')
+                  input#inputUserschoolgtime(type='hidden', value='60')
+                  console.log('adding 60min')
+                -else
+                  -if (inputUserdojopoints == '2')
+                    input#inputUserschoolgtime(type='hidden', value='90')
+                    console.log('adding 90min')
+                  -else
+                    if (inputUserdojopoints == '3')
+                      input#inputUserschoolgtime(type='hidden', value='90')
+                      console.log('adding 90min')
+                    -else
+                      input#inputUserschoolgtime(type='hidden', value='0')
+                      console.log('adding 0min')
