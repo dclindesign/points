@@ -117,7 +117,7 @@ console.log(_Date);
                'date': $('#addUser fieldset input#inputUserDate').val(),
                'name': $('#addUser fieldset select#inputUsername').val(),
                'dojopoints': $('#addUser fieldset input#inputUserdojopoints').val(),
-               'color': $('#addUser fieldset input#inputUsercolor').val(),
+               'color': $('#addUser fieldset select#inputUsercolor').val(),
                'schoolgtime': $('#addUser fieldset input#inputUserschoolgtime').val(),
                'kumongtime': $('#addUser fieldset select#inputUserkumongtime').val(),
                'chinesepoints': $('#addUser fieldset input#inputUserchinesepoints').val(),
@@ -312,20 +312,69 @@ $.ajax({
 
            }
          }
-// changetime
-function convertdojotime() {
+//toggle school time by username
+function toggleclass(){
+  var classuser = document.getElementById('inputUsername');
+
+}
+
+// changetime dojotime
+function converttime() {
+    var convertname = $('#addUser fieldset input#inputUsername').val();
     var convertdojopoints = $('#addUser fieldset input#inputUserdojopoints').val();
-    if ( convertdojopoints == '1'){
-      console.log('adding 60min');
-      var convgtime = '60';
-      //$(inputUserschoolgtime.val('60'));
-    }
-    else
-      if ( convertdojopoints == '2'){
+    var convertusercolor = $('#addUser fieldset input#inputUsercolor').val();
+    if (convertname == 'Dustin'){
+      if (convertdojopoints == '1'){
+        console.log('adding 60min');
+        cgtime = '60';
+        console.log(cgtime);
+        document.getElementById('inputUserschoolgtime').value = cgtime;
+        return true;
+        }
+      else
+      if (convertdojopoints == '2'){
         console.log('adding 90min');
-      //  $('#addUser fieldset input#inputUserschoolgtime').val('90');
-      }
+        cgtime = '90';
+        console.log(cgtime);
+        document.getElementById('inputUserschoolgtime').value = cgtime;
+        return true;
+        }
       else
         console.log('adding 0min');
-      //  $('#addUser fieldset input#inputUserschoolgtime').val('0');
-      }
+        cgtime = '0';
+        console.log(cgtime);
+        document.getElementById('inputUserschoolgtime').value = cgtime;
+        return true;
+        }
+    else {
+      if (convertcolor == '18'){
+        console.log('adding 18min');
+        cgtime = '18';
+        console.log(cgtime);
+        document.getElementById('inputUserschoolgtime').value = cgtime;
+        return true;
+        }
+      else
+      if (convertdojopoints == '15'){
+        console.log('adding 15min');
+        cgtime = '15';
+        console.log(cgtime);
+        document.getElementById('inputUserschoolgtime').value = cgtime;
+        return true;
+        }
+      else
+      if (convertdojopoints == '12'){
+        console.log('adding 12min');
+        cgtime = '12';
+        console.log(cgtime);
+        document.getElementById('inputUserschoolgtime').value = cgtime;
+        return true;
+        }
+      else
+        console.log('adding 0min');
+        cgtime = '0';
+        console.log(cgtime);
+        document.getElementById('inputUserschoolgtime').value = cgtime;
+        return true;
+        }
+    }

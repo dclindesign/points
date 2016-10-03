@@ -2,7 +2,6 @@ extends layout
 block content
     h1= title
     p Game Time and Points
-
     // Wrapper
     #wrapper
         // USER INFO
@@ -40,7 +39,7 @@ block content
           h2 Add Entry
           #addUser
             fieldset
-              select#inputUsername(type='text')
+              select#inputUsername(onclick='toggleclass(), name='inputUsername', type='text')
                 option(value='Dustin') Dustin
                 option(value='Matthew') Matthew
               br
@@ -48,10 +47,19 @@ block content
               input#inputUserDate(type='date', placeholder='Date')
               br
               | Dojo Points
-              input#inputUserdojopoints(onClick='convertdojotime()', value='#{convgtime}', type='number', placeholder='0', min='0', max='100')
-              input#inputUserschoolgtime(type='hidden', value='#{convgtime}')
+              input#inputUserdojopoints(onClick='return converttime();', type='number', placeholder='0', min='0', max='3')
+              input#inputUserschoolgtime(type='hidden', name='inputUserschoolgtime' value='')
               | Class color
-              input#inputUsercolor(type='color', placeholder='color')
+              select#inputUsercolor(onClick='return converttime()', type='number', placeholder='color')
+                option(value='0') N/A
+                option(value='0') No School
+                option(value='18') Purple
+                option(value-'15') Blue
+                option(value='12') Red
+                option(value='0') Pink
+                option(value='0') Yellow
+                option(value='0') Green
+                option(value='0') Dark Green
               br
               | Kumon Game Time
               select#inputUserkumongtime(type='number')
