@@ -36,87 +36,91 @@ block content
 
         // ADD Entry
         #addUserPanel
-          h2 Add Entry
-          #addUser
-            fieldset
-              select#inputUsername(onclick='toggleclass(), name='inputUsername', type='text')
-                option(value='Dustin') Dustin
-                option(value='Matthew') Matthew
-              br
-              | Date
-              input#inputUserDate(type='date', placeholder='Date')
-              br
-              | Dojo Points
-              input#inputUserdojopoints(onClick='return converttime();', type='number', placeholder='0', min='0', max='3')
-              input#inputUserschoolgtime(type='hidden', name='inputUserschoolgtime' value='')
-              | Class color
-              select#inputUsercolor(onClick='return converttime()', type='number', placeholder='color')
-                option(value='0') N/A
-                option(value='0') No School
-                option(value='18') Purple
-                option(value-'15') Blue
-                option(value='12') Red
-                option(value='0') Pink
-                option(value='0') Yellow
-                option(value='0') Green
-                option(value='0') Dark Green
-              br
-              | Kumon Game Time
-              select#inputUserkumongtime(type='number')
-                option(value='10') 1 Packet
-                option(value='20') 2 Packet
-                option(value='30') 3 Packet
-                option(value='40') 4 Packet
-                option(value='50') 5 Packet
-                option(value='60') 6 Packet
-                option(value='70') 7 Packet
-              br
-              | Chinese Points
-              input#inputUserchinesepoints(type='number', placeholder='0', value='0', min='0', max='5')
-              br
-              | Used Game Time
-              input#inputUserusedgtime(type='number', placeholder='0', value='0', min='0', max='300')
-              br
-              button#btnAddUser Add User
+            h2 Add Entry
+            #addUser
+                fieldset
+                    select#inputUsername(oninput='toggleclass()', name='inputUsername', type='text')
+                        option(value='')
+                        option(value='Dustin') Dustin
+                        option(value='Matthew') Matthew
+                    br
+                    | Date
+                    input#inputUserDate(type='date', placeholder='Date')
+                    br
+                    #dojo
+                        | Dojo Points
+                        input#inputUserdojopoints(onClick='return convertdtime();', type='number', placeholder='0', min='0', max='3', value='0')
+                    #color
+                        | Class color
+                        select#inputUsercolor(onchange='return convertctime()', type='text', placeholder='color')
+                            option(value='N/A') N/A
+                            option(value='No School') No School
+                            option(value='Purple') Purple
+                            option(value-'Blue') Blue
+                            option(value='Red') Red
+                            option(value='Pink') Pink
+                            option(value='Yellow') Yellow
+                            option(value='Green') Green
+                            option(value='Dark Green') Dark Green
+                            br
+                    | Kumon Game Time
+                    select#inputUserkumongtime(type='number', value='0')
+                        option(value='0') No Packet
+                        option(value='10') 1 Packet
+                        option(value='20') 2 Packet
+                        option(value='30') 3 Packet
+                        option(value='40') 4 Packet
+                        option(value='50') 5 Packet
+                        option(value='60') 6 Packet
+                        option(value='70') 7 Packet
+                    br
+                    | Chinese Points
+                    input#inputUserchinesepoints(type='number', placeholder='0', value='0', min='0', max='5')
+                    br
+                    | Used Game Time
+                    input#inputUserusedgtime(type='number', placeholder='0', value='0', min='0', max='300')
+                    br
+                    input#inputUserschoolgtime(type='text', name='inputUserschoolgtime' value='')
+                    button#btnAddUser Add User
         // /ADD USER
 
         // UPDATE USER
         #updateUserPanel
-          h2 Update User
-          #updateUser
-            fieldset
-              select#updateUsername(type='text')
-                option(value='Dustin') Dustin
-                option(value='Matthew') Matthew
-              br
-              | Date
-              input#updateUserDate(type='date', placeholder='Date')
-              br
-              | Dojo Points
-              input#updateUserdojopoints(type='number', placeholder='0', min='0', max='3')
-              | Class color
-              input#updateUsercolor(type='color', placeholder='color')
-              br
-              | School Game Time
-              input#updateUserschoolgtime(type='number', placeholder='0', min='0', max='90')
-              br
-              select#updateUserkumongtime(type='number')
-                option(value='10') 1 Packet
-                option(value='20') 2 Packet
-                option(value='30') 3 Packet
-                option(value='40') 4 Packet
-                option(value='50') 5 Packet
-                option(value='60') 6 Packet
-                option(value='70') 7 Packet
-              br
-              | Chinese Points
-              input#updateUserchinesepoints(type='number', placeholder='0', min='0', max='5')
-              br
-              | Used Game Time
-              input#updateUserusedgtime(type='number', placeholder='0', min='0', max='300')
-              br
-              button#btnUpdateUser Update User
-              button#btnCancelUpdateUser Cancel
+            h2 Update User
+            #updateUser
+                fieldset
+                    select#updateUsername(type='text')
+                        option(value='Dustin') Dustin
+                        option(value='Matthew') Matthew
+                    br
+                    | Date
+                    input#updateUserDate(type='date', placeholder='Date')
+                    br
+                    | Dojo Points
+                    input#updateUserdojopoints(type='number', placeholder='0', min='0', max='3')
+                    | Class color
+                    input#updateUsercolor(type='color', placeholder='color')
+                    br
+                    | School Game Time
+                    input#updateUserschoolgtime(type='number', placeholder='0', min='0', max='90')
+                    br
+                    select#updateUserkumongtime(type='number')
+                        option(value='10') 1 Packet
+                        option(value='20') 2 Packet
+                        option(value='30') 3 Packet
+                        option(value='40') 4 Packet
+                        option(value='50') 5 Packet
+                        option(value='60') 6 Packet
+                        option(value='70') 7 Packet
+                    br
+                    | Chinese Points
+                    input#updateUserchinesepoints(type='number', placeholder='0', min='0', max='5')
+                    br
+                    | Used Game Time
+                    input#updateUserusedgtime(type='number', placeholder='0', min='0', max='300')
+                    br
+                    button#btnUpdateUser Update User
+                    button#btnCancelUpdateUser Cancel
         // /UPDATE USER
         // Point and Time Entry
         h2 Points and Time Entry
@@ -134,4 +138,4 @@ block content
                     th Delete/Update?
                 tbody
         // /USER LIST
-    // /WRAPPER
+        // /WRAPPER
