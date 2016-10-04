@@ -80,7 +80,7 @@ block content
                     | Used Game Time
                     input#inputUserusedgtime(type='number', placeholder='0', value='0', min='0', max='300')
                     br
-                    input#inputUserschoolgtime(type='text', name='inputUserschoolgtime' value='')
+                    input#inputUserschoolgtime(type='hidden', name='inputUserschoolgtime' value='')
                     button#btnAddUser Add User
         // /ADD USER
 
@@ -89,22 +89,31 @@ block content
             h2 Update User
             #updateUser
                 fieldset
-                    select#updateUsername(type='text')
-                        option(value='Dustin') Dustin
-                        option(value='Matthew') Matthew
+                select#updateUsername(oninput='utoggleclass()', name='inputUsername', type='text')
+                    option(value='Dustin') Dustin
+                    option(value='Matthew') Matthew
                     br
                     | Date
                     input#updateUserDate(type='date', placeholder='Date')
                     br
-                    | Dojo Points
-                    input#updateUserdojopoints(type='number', placeholder='0', min='0', max='3')
-                    | Class color
-                    input#updateUsercolor(type='color', placeholder='color')
-                    br
-                    | School Game Time
-                    input#updateUserschoolgtime(type='number', placeholder='0', min='0', max='90')
-                    br
+                    #udojo
+                        | Dojo Points
+                        input#updateUserdojopoints(onClick='return uconvertdtime();', type='number', placeholder='0', min='0', max='3', value='0')
+                    #ucolor
+                        | Class color
+                        select#updateUsercolor(onchange='return uconvertctime()', type='text', placeholder='color')
+                            option(value='N/A') N/A
+                            option(value='No School') No School
+                            option(value='Purple') Purple
+                            option(value-'Blue') Blue
+                            option(value='Red') Red
+                            option(value='Pink') Pink
+                            option(value='Yellow') Yellow
+                            option(value='Green') Green
+                            option(value='Dark Green') Dark Green
+                            br
                     select#updateUserkumongtime(type='number')
+                        option(value='0') No Packet
                         option(value='10') 1 Packet
                         option(value='20') 2 Packet
                         option(value='30') 3 Packet
@@ -119,6 +128,7 @@ block content
                     | Used Game Time
                     input#updateUserusedgtime(type='number', placeholder='0', min='0', max='300')
                     br
+                    input#inputUserschoolgtime(type='hidden', name='inputUserschoolgtime' value='')
                     button#btnUpdateUser Update User
                     button#btnCancelUpdateUser Cancel
         // /UPDATE USER
